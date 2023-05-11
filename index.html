@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>入力フォーム</title>
+  <style>
+    body{
+        background-color: rgb(43,43,43);
+        color: white;
+    }
+    textarea{
+        background-color: rgb(88, 88, 88);
+    }
+    input{
+        background-color: rgb(88, 88, 88);
+    }
+  </style>
+</head>
+<body>
+  <h1>入力フォーム</h1>
+  
+  <form id="myForm">
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name"><br><br>
+    
+    <label for="content">内容:</label>
+    <textarea id="content" name="content"></textarea><br><br>
+    
+    <input type="submit" value="送信">
+  </form>
+  
+  <div id="output"></div>
+  
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // デフォルトのフォーム送信をキャンセル
+      
+      // 入力値を取得
+      var name = document.getElementById("name").value;
+      var content = document.getElementById("content").value;
+      
+      // 入力内容を表示
+      var output = document.getElementById("output");
+      output.innerHTML = "<h2>入力内容:</h2>" + "<p>名前: " + name + "</p>" + "<p>内容: " + content + "</p>";
+      
+      // フォームをクリア
+      document.getElementById("myForm").reset();
+    });
+  </script>
+</body>
+</html>
